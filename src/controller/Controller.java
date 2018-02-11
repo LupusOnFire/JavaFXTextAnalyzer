@@ -2,7 +2,7 @@ package controller;
 
 import model.DataMapper;
 import model.Reader;
-import view.Data;
+import view.ObservableData;
 
 import java.util.List;
 
@@ -17,12 +17,12 @@ public class Controller {
         reader = new Reader(filepath);
     }
 
-    public List<Data> getWordDataList() {
+    public List<ObservableData> getWordDataList() {
         System.out.println(reader.getTotalWordCount());
         return dataMapper.wordMapToDataList(reader.getWordMap(), reader.getTotalWordCount());
     }
 
-    public List<Data> getCharDataList() {
+    public List<ObservableData> getCharDataList() {
         return dataMapper.charMapToDataList(reader.getCharMap(), reader.getTotalCharCount());
     }
 }

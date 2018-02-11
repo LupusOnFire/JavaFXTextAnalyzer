@@ -1,25 +1,25 @@
 package model;
 
-import view.Data;
+import view.ObservableData;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 public class DataMapper {
-    public List<Data> charMapToDataList(Map<Character, Integer> charMap, int totalCharCount){
-        List<Data> charList = new LinkedList<>();
+    public List<ObservableData> charMapToDataList(Map<Character, Integer> charMap, int totalCharCount){
+        List<ObservableData> charList = new LinkedList<>();
         for (Map.Entry<Character, Integer> entry : charMap.entrySet()) {
-            Data word = new Data(""+entry.getKey(), entry.getValue(), (float)(entry.getValue()*100)/totalCharCount);
+            ObservableData word = new ObservableData(""+entry.getKey(), entry.getValue(), (float)(entry.getValue()*100)/totalCharCount);
             charList.add(word);
         }
         return charList;
     }
 
-    public List<Data> wordMapToDataList(Map<String, Integer> wordMap, int totalWordCount) {
-        List<Data> wordList = new LinkedList<>();
+    public List<ObservableData> wordMapToDataList(Map<String, Integer> wordMap, int totalWordCount) {
+        List<ObservableData> wordList = new LinkedList<>();
         for (Map.Entry<String, Integer> entry : wordMap.entrySet()) {
-            Data word = new Data(entry.getKey(), entry.getValue(), (float)(entry.getValue()*100)/totalWordCount);
+            ObservableData word = new ObservableData(entry.getKey(), entry.getValue(), (float)(entry.getValue()*100)/totalWordCount);
             wordList.add(word);
         }
         return wordList;

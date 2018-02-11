@@ -21,7 +21,7 @@ public class MainScene {
 
     private VBox vContainer;
     private HBox hContainer, hBoxfilePicker;
-    private TableView<Data> charTable, wordTable;
+    private TableView<ObservableData> charTable, wordTable;
     private FileChooser fileChooser;
     private TextField txtFileChooser;
     private Button btnSelect, btnGo, btnUrlGo;
@@ -51,21 +51,21 @@ public class MainScene {
         charTable = new TableView();
         wordTable = new TableView();
 
-        TableColumn<Data, String> charKeyColumn= new TableColumn<Data,String>("Character");
-        charKeyColumn.setCellValueFactory(new PropertyValueFactory<Data, String>("name"));
+        TableColumn<ObservableData, String> charKeyColumn= new TableColumn<ObservableData,String>("Character");
+        charKeyColumn.setCellValueFactory(new PropertyValueFactory<ObservableData, String>("name"));
         charKeyColumn.prefWidthProperty().bind(charTable.widthProperty().multiply(0.36));
 
         TableColumn charValueColumn = new TableColumn("Count");
-        charValueColumn.setCellValueFactory(new PropertyValueFactory<Data, Integer>("count"));
+        charValueColumn.setCellValueFactory(new PropertyValueFactory<ObservableData, Integer>("count"));
         charValueColumn.setStyle( "-fx-alignment: CENTER-RIGHT;");
         charValueColumn.prefWidthProperty().bind(charTable.widthProperty().multiply(0.2));
 
         TableColumn charPercentageColumn = new TableColumn("Percentage");
-        charPercentageColumn.setCellValueFactory(new PropertyValueFactory<Data, Double>("percentage"));
+        charPercentageColumn.setCellValueFactory(new PropertyValueFactory<ObservableData, Double>("percentage"));
         charPercentageColumn.setStyle( "-fx-alignment: CENTER-RIGHT;");
         charPercentageColumn.prefWidthProperty().bind(charTable.widthProperty().multiply(0.4));
         charPercentageColumn.setCellFactory(col ->
-        new TableCell<Data, Double>() {
+        new TableCell<ObservableData, Double>() {
             @Override
             public void updateItem(Double percentage, boolean empty) {
                 super.updateItem(percentage,empty);
@@ -85,20 +85,20 @@ public class MainScene {
 
 
         TableColumn wordKeyColumn = new TableColumn("Word");
-        wordKeyColumn.setCellValueFactory(new PropertyValueFactory<Data, String>("name"));
+        wordKeyColumn.setCellValueFactory(new PropertyValueFactory<ObservableData, String>("name"));
         wordKeyColumn.prefWidthProperty().bind(charTable.widthProperty().multiply(0.36));
 
         TableColumn wordValueColumn = new TableColumn("Count");
-        wordValueColumn.setCellValueFactory(new PropertyValueFactory<Data, Integer>("count"));
+        wordValueColumn.setCellValueFactory(new PropertyValueFactory<ObservableData, Integer>("count"));
         wordValueColumn.setStyle( "-fx-alignment: CENTER-RIGHT;");
         wordValueColumn.prefWidthProperty().bind(charTable.widthProperty().multiply(0.2));
 
         TableColumn wordPercentageColumn = new TableColumn("Percentage");
-        wordPercentageColumn.setCellValueFactory(new PropertyValueFactory<Data, Double>("percentage"));
+        wordPercentageColumn.setCellValueFactory(new PropertyValueFactory<ObservableData, Double>("percentage"));
         wordPercentageColumn.setStyle( "-fx-alignment: CENTER-RIGHT;");
         wordPercentageColumn.prefWidthProperty().bind(charTable.widthProperty().multiply(0.4));
         wordPercentageColumn.setCellFactory(col ->
-                new TableCell<Data, Double>() {
+                new TableCell<ObservableData, Double>() {
                     @Override
                     public void updateItem(Double percentage, boolean empty) {
                         super.updateItem(percentage,empty);

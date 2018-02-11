@@ -4,12 +4,12 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class Data {
+public class ObservableData {
     private final SimpleStringProperty name;
     private final SimpleIntegerProperty count;
     private final SimpleDoubleProperty percentage;
 
-    public Data(String name, int count, double percentage) {
+    public ObservableData(String name, int count, double percentage) {
         this.name = new SimpleStringProperty(name);
         this.count = new SimpleIntegerProperty(count);
         this.percentage = new SimpleDoubleProperty(percentage);
